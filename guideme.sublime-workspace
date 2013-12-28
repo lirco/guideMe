@@ -1,0 +1,556 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"Floa",
+				"floatLeft"
+			],
+			[
+				"ac",
+				"action_add"
+			],
+			[
+				"add",
+				"addAction"
+			],
+			[
+				"re",
+				"registerCallbacks"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"con",
+				"container"
+			],
+			[
+				"rend",
+				"renderBreadcrumbs"
+			],
+			[
+				"new",
+				"newBreadcrumb"
+			],
+			[
+				"bread",
+				"breadcrubms"
+			],
+			[
+				"red",
+				"renderBreadcrumbs"
+			],
+			[
+				"cre",
+				"createTag"
+			],
+			[
+				"create",
+				"createTagEditor"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"ui",
+				"ui_setItemField"
+			],
+			[
+				"paddin",
+				"padding-right"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"is",
+				"is_public"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"pass",
+				"passport"
+			],
+			[
+				"hi",
+				"historyItems"
+			],
+			[
+				"conm",
+				"confirmed"
+			],
+			[
+				"em",
+				"email_confirmation_"
+			],
+			[
+				"c",
+				"confirm"
+			],
+			[
+				"Ema",
+				"EmailConfirmation"
+			],
+			[
+				"user",
+				"user_email"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"find",
+				"findById"
+			],
+			[
+				"ge",
+				"generate_token"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"exi",
+				"existing"
+			],
+			[
+				"sec",
+				"second_name"
+			],
+			[
+				"fi",
+				"first_name"
+			],
+			[
+				"pro",
+				"prototype"
+			],
+			[
+				"share",
+				"sharezDB"
+			],
+			[
+				"sta",
+				"strategy"
+			],
+			[
+				"back",
+				"background-image"
+			],
+			[
+				"bor",
+				"border-collapse"
+			],
+			[
+				"on",
+				"onclick	Attr"
+			],
+			[
+				"the",
+				"thesong"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"bo",
+				"border"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"text",
+				"text-decoration"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 311.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Pa",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Add Repository"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"2+3",
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print('Please restart Sublime Text to finish installation')",
+			"https://sublime.wbond.net/alpha/packages.json"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Code/GitHub/sharez/server/views/templates/tag.jade",
+		"/C/Code/GitHub/sharez/server/build.js",
+		"/C/Code/GitHub/sharez/server/node_modules/templatizer/templatizer.js",
+		"/C/Code/GitHub/sharez/server/public/javascripts/snippets.js",
+		"/C/Code/GitHub/sharez/server/views/signup.jade",
+		"/C/Code/GitHub/sharez/server/views/login.jade",
+		"/C/Code/GitHub/sharez/server/public/stylesheets/style.css",
+		"/C/Code/GitHub/sharez/server/views/layouts/home_layout.jade",
+		"/C/Code/GitHub/sharez/server/views/skin/default/new_item.jade",
+		"/C/Code/GitHub/sharez/server/views/skin/default/item.jade",
+		"/C/Code/GitHub/sharez/server/public/stylesheets/site.css",
+		"/C/Code/GitHub/sharez/server/public/javascripts/breadcrumbs.js",
+		"/C/Code/GitHub/sharez/server/demo_output.js",
+		"/C/Code/GitHub/sharez/server/public/javascripts/view_helper.js",
+		"/C/Code/GitHub/sharez/server/models/item.js",
+		"/C/Code/GitHub/sharez/server/routes/api/item_routes.js",
+		"/C/Code/GitHub/sharez/server/views/home.jade",
+		"/C/Code/GitHub/sharez/server/routes/router.js",
+		"/C/Code/GitHub/sharez/server/routes/ui_routes.js",
+		"/C/Code/GitHub/sharez/server/app.js",
+		"/C/Code/GitHub/sharez/server/dbinit.js",
+		"/C/Code/GitHub/sharez/server/routes/api_routes.js",
+		"/C/Code/GitHub/sharez/server/public/stylesheets/drawer.css",
+		"/C/Code/GitHub/sharez/extension/options.html",
+		"/C/Code/GitHub/sharez/server/views/layouts/admin_layout.jade",
+		"/C/Code/GitHub/sharez/server/routes/admin_routes.js",
+		"/C/Code/GitHub/sharez/server/views/admin/users.jade",
+		"/C/Code/GitHub/sharez/server/routes/index.js",
+		"/C/Code/GitHub/sharez/server/views/layouts/layout.jade",
+		"/C/Code/GitHub/sharez/server/views/admin/dashboard.jade",
+		"/C/Code/GitHub/sharez/server/models/user.js",
+		"/C/Code/GitHub/sharez/server/routes/api.js",
+		"/C/Code/GitHub/sharez/server/views/admin/index.jade",
+		"/C/Code/GitHub/sharez/server/routes/user_routes.js",
+		"/C/Code/GitHub/sharez/server/routes/users.js",
+		"/C/Code/GitHub/sharez/server/routes/admins.js",
+		"/C/Code/GitHub/sharez/server/views/confirm.jade",
+		"/C/Code/GitHub/sharez/server/views/index.jade",
+		"/C/Code/GitHub/sharez/extension/manifest.json",
+		"/C/Code/GitHub/sharez/extension/popup.js",
+		"/C/Code/GitHub/sharez/extension/popup.html",
+		"/C/Code/GitHub/sharez/server/models/email_confirmation.js",
+		"/C/Code/GitHub/sharez/server/views/resend_confirmation.jade",
+		"/C/Code/GitHub/sharez/server/views/home_layout.jade",
+		"/C/Code/GitHub/sharez/server/views/emails/invite.html",
+		"/C/Code/GitHub/sharez/server/package.json",
+		"/C/Code/GitHub/sharez/server/lib/emailer.coffee",
+		"/C/Code/Sublime Text 3/Data/Packages/User/JavaScript.sublime-settings",
+		"/C/Code/Sublime Text 3/Data/Packages/User/Preferences.sublime-settings",
+		"/C/Code/Sublime Text 3/Data/Packages/Default/Preferences.sublime-settings",
+		"/C/Code/GitHub/sharez/server/views/emails/confirm.html",
+		"/C/Code/GitHub/sharez/server/public/images/email/email_sharez_logo.png",
+		"/C/Code/GitHub/sharez/server/emailer.coffee",
+		"/C/Code/GitHub/sharez/server/node_modules/passport-local/lib/passport-local/strategy.js",
+		"/C/Code/GitHub/sharez/server/node_modules/nano/samples/lazy_creation_of_views.js",
+		"/C/Code/GitHub/sharez/server/routes/user.js",
+		"/C/Code/GitHub/sharez/server/node_modules/passport/lib/passport/index.js",
+		"/C/Code/GitHub/sharez/server/node_modules/passport/README.md",
+		"/C/Code/GitHub/sharez/server/node_modules/passport/lib/passport/middleware/authenticate.js",
+		"/C/Code/GitHub/sharez/server/views/layout.jade",
+		"/C/Code/GitHub/sharez/extension/sharez.js",
+		"/C/Code/GitHub/sharez/extension/overlay.js",
+		"/C/Code/GitHub/sharez/server/views/extension/actions/add_item.jade",
+		"/C/Code/GitHub/sharez/server/views/drawer.jade",
+		"/C/Code/GitHub/sharez/server/routes/extension.js",
+		"/C/Code/GitHub/sharez/extension/overlay.css",
+		"/C/Code/GitHub/sharez/extension/main.js",
+		"/C/Code/GitHub/sharez/extension/authdialog.html",
+		"/C/Code/GitHub/sharez/extension/browseraction.js",
+		"/C/Code/GitHub/sharez/extension/browseraction.html",
+		"/C/Code/GitHub/sharez/extension/jquery-1.9.1.js",
+		"/C/Code/GitHub/sharez/server/views/footer.jade",
+		"/C/Code/GitHub/sharez/extension/_locales/en/messages.json",
+		"/C/Code/GitHub/sharez/server/node_modules/jade/Readme_zh-cn.md",
+		"/C/Code/GitHub/sharez/server/node_modules/jade/jade-language.md",
+		"/C/Code/GitHub/sharez/server/node_modules/express/node_modules/send/node_modules/mime/types/mime.types",
+		"/C/Code/GitHub/sharez/server/public/stylesheets/footer.css",
+		"/C/Code/GitHub/sharez/extension/options.js",
+		"/C/Code/GitHub/ShareWiz/node/static/footer.html",
+		"/C/Code/GitHub/ShareWiz/express/sharez/views/footer.jade",
+		"/C/Code/GitHub/ShareWiz/express/sharez/app.js",
+		"/C/Code/GitHub/ShareWiz/express/sharez/routes/extension.js",
+		"/C/Code/GitHub/ShareWiz/node/server.js",
+		"/C/Code/GitHub/ShareWiz/extension/overlay.js",
+		"/C/Code/GitHub/ShareWiz/extension/overlay.css",
+		"/C/Code/GitHub/ShareWiz/node/controller.js",
+		"/C/Code/GitHub/ShareWiz/node/express.test.js",
+		"/C/Code/GitHub/ShareWiz/node/test.js",
+		"/C/Code/GitHub/ShareWiz/extension/options.js",
+		"/C/Code/GitHub/ShareWiz/extension/sharewiz.js",
+		"/C/Users/tahmidkarim/web8/main.css",
+		"/C/Users/tahmidkarim/web8/index.html",
+		"/D/Software/Portable/Sublime Text 3/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/D/Software/Portable/Sublime Text 3/Data/Packages/Browser Refresh/Default (Windows).sublime-keymap",
+		"/D/Software/Portable/Sublime Text 3/Data/Packages/Default/Preferences.sublime-settings",
+		"/D/Software/Portable/Sublime Text 3/Data/Packages/User/Preferences.sublime-settings",
+		"/D/Software/Portable/Sublime Text 3/Data/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/tahmidkarim/Desktop/Sublime Text 3/Data/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 102.0,
+		"where_history":
+		[
+			"",
+			"*.jade",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"item_tags",
+			"tag_x",
+			"remove_tag",
+			"closeEditor",
+			"tagsDiv",
+			"containerDiv",
+			"tagDiv",
+			"tagInput",
+			"header_action_link",
+			"ui_setItemField",
+			"item_wrapper",
+			"item_div",
+			"updateBreadcrumbs",
+			"renderBread",
+			"46%",
+			"contentTitle",
+			"left",
+			"user_header",
+			"new Item",
+			"src=",
+			"new Item",
+			"routes/api",
+			"\")\n",
+			".load",
+			"actionTags",
+			"src=",
+			"default",
+			"szAddItem",
+			"arrow.png",
+			"req.user",
+			".insert",
+			"sharezDB",
+			"initDB",
+			"users",
+			"ensureAuthenticated",
+			".\n",
+			"        \n",
+			"console.",
+			".save(",
+			"db.insert",
+			".confirm",
+			"EmailConfirmation",
+			"account",
+			"\":\"*\"",
+			".hash",
+			".extend",
+			".confirm()",
+			"confirm",
+			"Doesnot match",
+			"consle ",
+			"req.db",
+			"generate_token",
+			"User.new",
+			"find_by_email",
+			"user_id",
+			"redirect",
+			".query",
+			"_verify",
+			"dont pass request",
+			"welcome",
+			"28px",
+			"LocalStrategy",
+			"User.create",
+			"console.log",
+			"_verify",
+			"'local'",
+			"actionButton",
+			"drawer.css",
+			"img",
+			"Verdana",
+			"onclick",
+			"szHeaderActions",
+			"clear",
+			"sharezDrawer",
+			"Add",
+			"Footer",
+			"sharewiz",
+			"60px",
+			"10.0.0.4",
+			"3000",
+			"}\n",
+			"//",
+			"auto",
+			"009bdf"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"container",
+			"wrapper",
+			"tags",
+			"db",
+			"user",
+			"user_email",
+			"Drawer",
+			"sharez"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 36.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "guideme.sublime-project",
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 218.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

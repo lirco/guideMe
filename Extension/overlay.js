@@ -1,9 +1,10 @@
-console.log("GuideMeUI is running");
+console.log("GuideMe overlay.js loaded");
 
-chrome.extension.sendMessage({enabled: "enabled"}, function(response) {
+chrome.extension.sendMessage({method: "pageLoaded"}, function(response) {
   // check the response
-  if(response.enabled == "true") { // inject overlay if necessary
-    console.log("GuideMe Enabled: initializing UI");
+  console.log("Received response !!!!!");
+  if(response.enabled == true) { // inject overlay if necessary
+    console.log("GuideMe Enabled: page supported - initializing UI");
 
     /*
     $('head').append( $('<link rel="stylesheet" type="text/css" />')
