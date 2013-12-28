@@ -1,0 +1,20 @@
+{
+   "authdialog_password": {
+      "message": "Password"
+   },
+   "authdialog_remember": {
+      "message": "Remember login information"
+   },
+   "authdialog_title": {
+      "message": "sharez Authentication"
+   },
+   "authdialog_username": {
+      "message": "Username"
+   },
+   "browseraction_settings": {
+      "message": "sharez Settings"
+   },
+   "browseraction_goto": {
+        "message": "Go to website"
+    }   
+}
