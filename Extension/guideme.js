@@ -1,6 +1,6 @@
 var GuideMe = function() {
-    Settings: new GuideMeSettings()
-}
+  this.settings = new GuideMeSettings()  
+};
 
 var guideme = new GuideMe();
 
@@ -11,7 +11,7 @@ chrome.extension.onMessage.addListener(
     {
       // Context script 
       var b = chrome.extension.getBackgroundPage();
-      var guidemeEnabled = b.guideme.Settings.get("enabled", "true");
+      var guidemeEnabled = b.guideme.settings.get("enabled", "true");
 
       if (guidemeEnabled === "true") 
       {
