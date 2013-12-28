@@ -1,11 +1,11 @@
-
 console.log("GuideMeUI is running");
 
-/*chrome.extension.sendMessage({enabled: "enabled"}, function(response) {
+chrome.extension.sendMessage({enabled: "enabled"}, function(response) {
   // check the response
   if(response.enabled == "true") { // inject overlay if necessary
-    console.log("sharez Enabled: injecting drawer");
+    console.log("GuideMe Enabled: initializing UI");
 
+    /*
     $('head').append( $('<link rel="stylesheet" type="text/css" />')
         .attr('href', 'http://127.0.0.1:3000/stylesheets/style.css')
         .attr('href', 'http://127.0.0.1:3000/stylesheets/drawer.css')
@@ -15,6 +15,7 @@ console.log("GuideMeUI is running");
         $('body').append(data);
       });
     }) );
+    */
   }
 });
-*/
+
