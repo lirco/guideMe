@@ -2,7 +2,16 @@
   this.settings = new GuideMeSettings();
   this.handlers = {};
   this.menu = {
-    "moodle.tau.ac.il" : ["Embed Slideshare presentation", "Create label from template"]
+    "moodle.tau.ac.il" : [
+      {
+        id:"moodle_menu_slideshare", 
+        title:"Embed Slideshare presentation"
+      }, 
+      { 
+        id:"moodle_menu_label", 
+        title:"Create label from template",
+      }
+    ]
   };
 
   // Register handlers
