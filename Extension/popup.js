@@ -20,7 +20,12 @@ $( document ).ready(function() {
 
       // Attach on click handler
       $('.guideme_menu_item').click(function(){
-        console.log($(this).attr('id'));
+        var clicked = $(this).attr('id');
+        chrome.extension.sendMessage({method:'onMenu', id:clicked}, function(response)
+        {
+          // Close popup
+          window.close();
+        });
       });
     });
   });

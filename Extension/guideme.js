@@ -15,7 +15,8 @@
   };
 
   // Register handlers
-  this.registerHandler("getMenu", this.getMenuHandler.bind(this));
+  this.registerHandler("getMenu",    this.getMenuHandler.bind(this));
+  this.registerHandler("onMenu",     this.onMenuHandler.bind(this));
   this.registerHandler("pageLoaded", this.pageLoadedHandler.bind(this));
 };
 
@@ -31,6 +32,11 @@ GuideMe.prototype.getMenuHandler = function(request, sender, sendResponse)
   {
     console.error("Menu not defined for: " + hostname);
   }
+}
+
+GuideMe.prototype.onMenuHandler = function(request, sender, sendResponse)
+{
+  console.log("On Menu: " + request.id);
 }
 
 GuideMe.prototype.pageLoadedHandler = function(request, sender, sendResponse)
