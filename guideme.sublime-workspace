@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"guide",
+				"guideme_menu_item"
+			],
+			[
+				"men",
+				"menuItems"
+			],
+			[
+				"guid",
+				"guideme"
+			],
+			[
+				"send",
+				"sendResponse"
+			],
+			[
+				"se",
+				"sendResponse"
+			],
+			[
+				"gui",
+				"guideme"
+			],
+			[
 				"margin",
 				"margin-top"
 			],
@@ -199,6 +223,38 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "Extension/guideme.js",
+			"settings":
+			{
+				"buffer_size": 2833,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Extension/overlay.js",
+			"settings":
+			{
+				"buffer_size": 728,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Extension/popup.js",
+			"settings":
+			{
+				"buffer_size": 951,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Extension/popup.html",
+			"settings":
+			{
+				"buffer_size": 794,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -248,6 +304,8 @@
 	},
 	"file_history":
 	[
+		"/C/Code/GitHub/guideMe/Extension/popup.html",
+		"/C/Code/GitHub/guideMe/Extension/manifest.json",
 		"/C/Code/GitHub/sharez/server/views/templates/tag.jade",
 		"/C/Code/GitHub/sharez/server/build.js",
 		"/C/Code/GitHub/sharez/server/node_modules/templatizer/templatizer.js",
@@ -366,6 +424,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"handleRequest",
 			"item_tags",
 			"tag_x",
 			"remove_tag",
@@ -457,6 +516,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"onMessage",
 			"container",
 			"wrapper",
 			"tags",
@@ -475,8 +535,117 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "Extension/guideme.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2833,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								925,
+								925
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 198.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Extension/overlay.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 728,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42,
+								42
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Extension/popup.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 951,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								951,
+								951
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Extension/popup.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 794,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								794,
+								794
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -530,6 +699,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"C:\\Code\\GitHub\\guideMe\\guideme.sublime-project"
+			]
 		],
 		"width": 380.0
 	},

@@ -18,7 +18,7 @@
     "js": ["lib/jquery-1.9.1.js","lib/underscore.js", "lib/URI.js", "overlay.js"]
   }],
   "background": {
-    "scripts": ["lib/jquery-1.9.1.js", "lib/underscore.js", "settings.js", "guideme.js"]
+    "scripts": ["lib/jquery-1.9.1.js", "lib/underscore.js", "settings.js", "action.js", "guideme.js"]
   },
   "page_action": {
     "default_icon": "images/icon.png",
