@@ -8,20 +8,46 @@ chrome.extension.sendMessage({method: "pageLoaded"}, function(response) {
   }
 });
 
-// Add specific UI handlers
-function showBubble(selector) {
-  var element = $(selector);
+var guide = null;
 
-  // TODO: Change this example to actual code
-  $(element).css("border", "1px solid red");
+function nextAction(tutorialId, actionId)
+{
+    console.log("Run next action, tutorialId = " + tutorialId + " actionId = " + actionId);
+
+    chrome.extension.sendMessage({method: "nextAction", tutorialId:tutorialId, actionId:actionId}, function(response) {
+        console.log(response);
+    });
+}
+
+
+function showAction(action) 
+{
+    guide = guiders.createGuider({
+      attachTo: "#login",
+      buttons: [{name: "Go to next one", onclick: nextAction}],
+      description: action.description,
+      title: action.title,
+      id: "third",
+      next: "fourth",
+      position: 9,
+      width: 300
+    });
+    
+    guide.action = action;
+    guide.show();
 }
 
 // Initialize event listener
 chrome.extension.onMessage.addListener( 
   function(request, sender, sendResponse) {
+    console.log("Got message");
     if (typeof request.method != 'undefined')
     {
       var method = request.method;
+      if (method == "showAction")
+      {
+          showAction(request.action);
+      }
       console.log("Processing message: " + method);
     }
     else
@@ -29,6 +55,7 @@ chrome.extension.onMessage.addListener(
       console.error("No method in message");
       console.error(request);
     }
+    return true;
 });
 
-showBubble('#tau_header');
+nextAction("moodle_menu_slideshare","moodle_login");

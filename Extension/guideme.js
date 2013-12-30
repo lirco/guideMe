@@ -15,21 +15,27 @@
   };
 
   this.actions = {
-    "moodle_menu_slideshare" : [
+    "moodle_menu_slideshare" : 
       {
-        id : "moodle_login" // TODO: Add more section parameters
-        // We will assume the id uniquely identifies an action
+          "start" : "moodle_login",
+          "moodle_login" : {
+              // Login action
+              description: "You have to login to moodle in order to continue",
+              title: "",
+              next: "moodle_enter_course"
+          },
+          "moodle_enter_course" : {
+              description: "Now enter your course",
+              title: ""   
+          }
       },
-      {
-        id: "moodle_enter_course"
-      }
-    ]
   }
 
   // Register handlers
   this.registerHandler("getMenu",    this.getMenuHandler.bind(this));
   this.registerHandler("onMenu",     this.onMenuHandler.bind(this));
   this.registerHandler("pageLoaded", this.pageLoadedHandler.bind(this));
+  this.registerHandler("nextAction", this.nextActionHandler.bind(this));
 };
 
 GuideMe.prototype.getMenuHandler = function(request, sender, sendResponse)
@@ -46,9 +52,30 @@ GuideMe.prototype.getMenuHandler = function(request, sender, sendResponse)
   }
 }
 
+GuideMe.prototype.runAction = function(tutorialId, actionId)
+{
+    // TODO: Check that tutorial exists
+    var tutorial = this.actions[tutorialId];
+    var action = tutorial[actionId];
+    
+    chrome.extension.sendMessage({method: "showAction", action:action}, function(response) {
+        console.log("Running action");
+        console.log(response);
+    });
+}
+
 GuideMe.prototype.onMenuHandler = function(request, sender, sendResponse)
 {
   console.log("On Menu: " + request.id);
+  // find the first action in the activated tutorial and run it
+  
+  // TODO:check that we are not in the middle of another tutorial
+}
+
+GuideMe.prototype.nextActionHandler = function(request, sender, sendResponse)
+{
+  console.log("Run next action, tutorialId = " + request.tutorialId + " actionId = " + request.actionId);
+  this.runAction(request.tutorialId, request.actionId);
 }
 
 GuideMe.prototype.pageLoadedHandler = function(request, sender, sendResponse)
