@@ -14,6 +14,18 @@
     ]
   };
 
+  this.actions = {
+    "moodle_menu_slideshare" : [
+      {
+        id : "moodle_login" // TODO: Add more section parameters
+        // We will assume the id uniquely identifies an action
+      },
+      {
+        id: "moodle_enter_course"
+      }
+    ]
+  }
+
   // Register handlers
   this.registerHandler("getMenu",    this.getMenuHandler.bind(this));
   this.registerHandler("onMenu",     this.onMenuHandler.bind(this));
@@ -65,11 +77,10 @@ GuideMe.prototype.onMessage = function(request, sender, sendResponse)
   // TODO: Add check that extension is enabled in settings
   // var guidemeEnabled = b.guideme.settings.get("enabled", "true");
 
-  if (request.method != 'undefined')
+  if (typeof request.method != 'undefined')
   {
     var method = request.method;
     console.log("Processing message: " + method);
-
     
     if (method in this.handlers)
     {
@@ -91,20 +102,9 @@ GuideMe.prototype.onMessage = function(request, sender, sendResponse)
 // Main object which holds application business logic and state
 var guideme = new GuideMe();
 
-//
+// Setup message listener
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
-    /* // This works
-    console.log("=======================================");
-    console.log(request);
-    console.log(sender);
-    console.log(sendResponse);
-    if (typeof  sender.tab != 'undefined' && typeof sender.tab.id != 'undefined') {
-      chrome.pageAction.show(sender.tab.id);
-    }
-    sendResponse("test");
-    */
-
     var b = chrome.extension.getBackgroundPage();
     b.guideme.onMessage(request, sender, sendResponse);
     return true;

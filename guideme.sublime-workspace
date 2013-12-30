@@ -227,7 +227,24 @@
 			"file": "Extension/guideme.js",
 			"settings":
 			{
-				"buffer_size": 2833,
+				"buffer_size": 2788,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Extension/action.js",
+			"settings":
+			{
+				"buffer_size": 192,
+				"line_ending": "Windows",
+				"name": "var Action = function() {"
+			}
+		},
+		{
+			"file": "Extension/manifest.json",
+			"settings":
+			{
+				"buffer_size": 769,
 				"line_ending": "Windows"
 			}
 		},
@@ -235,7 +252,7 @@
 			"file": "Extension/overlay.js",
 			"settings":
 			{
-				"buffer_size": 728,
+				"buffer_size": 869,
 				"line_ending": "Windows"
 			}
 		},
@@ -544,42 +561,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2833,
+						"buffer_size": 2788,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								925,
-								925
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 198.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Extension/overlay.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 728,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								42,
-								42
+								567,
+								567
 							]
 						],
 						"settings":
@@ -593,7 +583,91 @@
 					"type": "text"
 				},
 				{
+					"buffer": 1,
+					"file": "Extension/action.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 192,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								174,
+								174
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var Action = function() {",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
 					"buffer": 2,
+					"file": "Extension/manifest.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 769,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								661,
+								661
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Extension/overlay.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 869,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								461,
+								461
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "Extension/popup.js",
 					"semi_transient": false,
 					"settings":
@@ -620,7 +694,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "Extension/popup.html",
 					"semi_transient": false,
 					"settings":
