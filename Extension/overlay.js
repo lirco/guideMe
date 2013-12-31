@@ -23,12 +23,12 @@ function nextAction(tutorialId, actionId)
 function showAction(action) 
 {
     guide = guiders.createGuider({
-      attachTo: "#login",
+      attachTo: action.selector,
       buttons: [{name: "Go to next one", onclick: nextAction}],
       description: action.description,
       title: action.title,
-      id: "third",
-      next: "fourth",
+      id: action.id,
+      next: "fourth", //TODO: Think how to implement UI state machine
       position: 9,
       width: 300
     });
@@ -58,4 +58,4 @@ chrome.extension.onMessage.addListener(
     return true;
 });
 
-nextAction("moodle_menu_slideshare","moodle_login");
+//nextAction("moodle_menu_slideshare","moodle_login");

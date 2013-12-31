@@ -13,18 +13,30 @@
       }
     ]
   };
-
+  
+  // TODO: Implement state machine history stack and trace
+  
+  
+  // TODO: Implement flow loading from the server, so we can update it if the site changes (Phase2)
   this.actions = {
     "moodle_menu_slideshare" : 
       {
           "start" : "moodle_login",
           "moodle_login" : {
-              // Login action
+              // Login 
+              selector: "#login",
               description: "You have to login to moodle in order to continue",
               title: "",
-              next: "moodle_enter_course"
+              next: "moodle_enter_course",
+              pre: function() {
+                  console.log("Checking preconditions: moodle_login")
+              },
+              post: function() {
+                  console.log("Checking post conditions: moodle_login")
+              }
           },
           "moodle_enter_course" : {
+              // Choose course 
               description: "Now enter your course",
               title: ""   
           }
@@ -59,6 +71,10 @@ GuideMe.prototype.runAction = function(tabId, tutorialId, actionId)
     var tutorial = this.actions[tutorialId];
     var action = tutorial[actionId];
     
+    // Copy the id iteself so we have in the UI
+    action.id = actionId;
+    
+    
     chrome.tabs.sendMessage(tabId, {method: "showAction", action:action}, function(response) {
         console.log("Running action");
         console.log(response);
@@ -68,9 +84,11 @@ GuideMe.prototype.runAction = function(tabId, tutorialId, actionId)
 GuideMe.prototype.onMenuHandler = function(request, sender, sendResponse)
 {
   console.log("On Menu: " + request.id);
-  // find the first action in the activated tutorial and run it
-  
   // TODO:check that we are not in the middle of another tutorial
+  var tutorial = this.actions[request.tutorialId];
+  this.runAction(request.tabId, request.tutorialId, tutorial.start);
+  
+  // update state - tutorial running
 }
 
 GuideMe.prototype.nextActionHandler = function(request, sender, sendResponse)

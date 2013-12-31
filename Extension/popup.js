@@ -8,6 +8,7 @@ $( document ).ready(function() {
   console.log("Sending message to background");
   chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
     var url = tabs[0].url;
+    var tabId = tabs[0].id;
     chrome.extension.sendMessage({method:'getMenu', url:url}, function(response)
     {
       var menuItems = response['menu'];
@@ -20,8 +21,8 @@ $( document ).ready(function() {
 
       // Attach on click handler
       $('.guideme_menu_item').click(function(){
-        var clicked = $(this).attr('id');
-        chrome.extension.sendMessage({method:'onMenu', id:clicked}, function(response)
+        var tutorialId = $(this).attr('id');
+        chrome.extension.sendMessage({method:'onMenu', tutorialId:tutorialId, tabId:tabId}, function(response)
         {
           // Close popup
           window.close();
