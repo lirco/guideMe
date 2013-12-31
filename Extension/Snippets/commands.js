@@ -26,13 +26,44 @@ var chooseCourse = function() {
 };
 
 /*
-activating editing mode
+activating edit mode
 url : http://moodle.tau.ac.il/course/view.php?id=SOME_ID
  */
 
-var status = $(".tree_item.leaf > a ").css("background-color","yellow");
+var enableEditMode = function() {
+    var status = $(".tree_item.leaf > a:first ").text();
+    if (status == "כיבוי עריכה" || status == "Turn editing off") {
+        alert('מעולה, מצב עריכה פועל כרגע, אפשר להמשיך');
+    } else if (status == "הפעלת עריכה" || status == "Turn editing on") {
+        alert('הפעל מצב עריכה כדי להמשיך');
+    } else {
+        alert('huston, we have a problem here.. check the code');
+    }
+};
+
+
+/*
+Choose asection of the course to add the content, and click on 'Add an activity or resource' button
+url : http://moodle.tau.ac.il/course/view.php?id=SOME_ID
+ */
+
+var addActivity = function() {
+    alert('בחר נושא בקורס אליו תרצה להוסיף תוכן ולחץ על "הוסף משאב או פעילות"');
+    $("#gtopics > li .content > h3").css("color", "brown");
+    $("#gtopics > li > .content .section-modchooser-text").css("color" , "blue");
+    $("#gtopics > li > .content .section-modchooser-text").click(function() {
+        alert('מעולה, נמשיך הלאה!')
+    });
+};
+
+
+$("iframe #chooserform > .options > .alloptions > .option").text();
 
 
 
-location.href;
+/**
+ * chrome.tabs.getSelected(null,function(tab) {
+    var url = tab.url;
+ */
+
 
