@@ -52,13 +52,14 @@ GuideMe.prototype.getMenuHandler = function(request, sender, sendResponse)
   }
 }
 
-GuideMe.prototype.runAction = function(tutorialId, actionId)
+GuideMe.prototype.runAction = function(tabId, tutorialId, actionId)
 {
+    console.log("runAction: tabId = "+ tabId + " tutorialId = " + tutorialId + " actionId = " + actionId);
     // TODO: Check that tutorial exists
     var tutorial = this.actions[tutorialId];
     var action = tutorial[actionId];
     
-    chrome.extension.sendMessage({method: "showAction", action:action}, function(response) {
+    chrome.tabs.sendMessage(tabId, {method: "showAction", action:action}, function(response) {
         console.log("Running action");
         console.log(response);
     });
@@ -74,8 +75,7 @@ GuideMe.prototype.onMenuHandler = function(request, sender, sendResponse)
 
 GuideMe.prototype.nextActionHandler = function(request, sender, sendResponse)
 {
-  console.log("Run next action, tutorialId = " + request.tutorialId + " actionId = " + request.actionId);
-  this.runAction(request.tutorialId, request.actionId);
+  this.runAction(sender.tab.id, request.tutorialId, request.actionId);
 }
 
 GuideMe.prototype.pageLoadedHandler = function(request, sender, sendResponse)
