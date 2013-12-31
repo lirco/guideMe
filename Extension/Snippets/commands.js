@@ -56,8 +56,35 @@ var addActivity = function() {
     });
 };
 
+/*
+Choose the Lable option and clicking on "add" submit button
+url : http://moodle.tau.ac.il/course/view.php?id=SOME_ID
+ */
+var chooseResourse = function() {
+    $("#chooserform > .options > .alloptions > .option:nth-child(39) .typename").css("background-color", "gray");
+    alert('בחר ב"פסקה מעוצבת"')
+    $("#chooserform > .options > .alloptions > .option:nth-child(39) .typename").click(function() {
+        alert('מעולה, בחרת בפיסקה מעוצבת');
+        $("#chooseform .submitbuttons > .submitbutton").css("color","blue");
+        alert('כעת לחץ על "הוספה"');
+        $("#chooseform .submitbuttons > .submitbutton").click(function() {
+            alert('מעולה, עכשיו נוסיף את הלינק');
+        });
+    });
+};
 
-$("iframe #chooserform > .options > .alloptions > .option").text();
+/*
+Adding the url to the dedicated field and saving changes
+url :
+ */
+var insertString = function() {
+    $("#id_introeditor_ifr").css("height","60px");
+    $("#id_submitbutton2").css("color","blue");
+    alert('הכנס את הלינק לכאן ולחץ על "שמירת שינויים וחזרה לקורס"');
+    $("#id_submitbutton2").click(function() {
+       alert('נהדר, סיימנו! התוכן החדש מחכה לך בדף הקורס');
+    });
+};
 
 
 
