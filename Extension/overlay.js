@@ -1,20 +1,23 @@
 console.log("GuideMe overlay.js loaded");
 
-chrome.extension.sendMessage({method: "pageLoaded"}, function(response) {
-  // check the response
-  console.log("Received response !!!!!");
-  if(response.enabled == true) { // inject overlay if necessary
-    console.log("GuideMe Enabled: page supported - initializing UI");
+chrome.extension.sendMessage({method: "uiLoaded"}, function(response) {
+  console.log(response);
+  var action = response.action;
+  if (action != null) 
+  {
+      if (action.post() == true)
+      {
+          nextAction(action);
+      }
   }
+
 });
 
 var guide = null;
 
-function nextAction(tutorialId, actionId)
+function nextAction(action)
 {
-    console.log("Run next action, tutorialId = " + tutorialId + " actionId = " + actionId);
-
-    chrome.extension.sendMessage({method: "nextAction", tutorialId:tutorialId, actionId:actionId}, function(response) {
+    chrome.extension.sendMessage({method: "nextAction", action:action}, function(response) {
         console.log(response);
     });
 }
@@ -24,7 +27,7 @@ function showAction(action)
 {
     guide = guiders.createGuider({
       attachTo: action.selector,
-      buttons: [{name: "Go to next one", onclick: nextAction}],
+      buttons: [{name: "Next", onclick: nextAction}],
       description: action.description,
       title: action.title,
       id: action.id,
@@ -57,5 +60,3 @@ chrome.extension.onMessage.addListener(
     }
     return true;
 });
-
-//nextAction("moodle_menu_slideshare","moodle_login");

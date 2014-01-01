@@ -1,6 +1,7 @@
  var GuideMe = function() {
   this.settings = new GuideMeSettings();
   this.handlers = {};
+  this.state = {}
   this.menu = {
     "moodle.tau.ac.il" : [
       {
@@ -29,24 +30,38 @@
               title: "",
               next: "moodle_enter_course",
               pre: function() {
-                  console.log("Checking preconditions: moodle_login")
+                  console.log("Checking preconditions: moodle_login");
+                  return !isLoggedIn();
               },
               post: function() {
-                  console.log("Checking post conditions: moodle_login")
+                  console.log("Checking post conditions: moodle_login");
+                  return isLoggedIn();
               }
           },
           "moodle_enter_course" : {
               // Choose course 
               description: "Now enter your course",
               title: ""   
-          }
+          },
+          "moodle_action_id" : {
+                // Login 
+                selector: "",
+                description: "",
+                title: "",
+                next: "",
+                pre: function() {
+                    
+                },
+                post: function() {
+                }
+            },
       },
   }
 
   // Register handlers
   this.registerHandler("getMenu",    this.getMenuHandler.bind(this));
   this.registerHandler("onMenu",     this.onMenuHandler.bind(this));
-  this.registerHandler("pageLoaded", this.pageLoadedHandler.bind(this));
+  this.registerHandler("uiLoaded",   this.uiLoadedHandler.bind(this));
   this.registerHandler("nextAction", this.nextActionHandler.bind(this));
 };
 
@@ -73,7 +88,9 @@ GuideMe.prototype.runAction = function(tabId, tutorialId, actionId)
     
     // Copy the id iteself so we have in the UI
     action.id = actionId;
+    action.tutorialId = tutorialId;
     
+    this.state[tabId] = action;
     
     chrome.tabs.sendMessage(tabId, {method: "showAction", action:action}, function(response) {
         console.log("Running action");
@@ -93,10 +110,10 @@ GuideMe.prototype.onMenuHandler = function(request, sender, sendResponse)
 
 GuideMe.prototype.nextActionHandler = function(request, sender, sendResponse)
 {
-  this.runAction(sender.tab.id, request.tutorialId, request.actionId);
+  this.runAction(sender.tab.id, request.action.tutorialId, request.action.id);
 }
 
-GuideMe.prototype.pageLoadedHandler = function(request, sender, sendResponse)
+GuideMe.prototype.uiLoadedHandler = function(request, sender, sendResponse)
 {
   var hostname = $('<a>').prop('href', sender.tab.url).prop('hostname');
   console.log("pageLoadedHandler: " + hostname);
@@ -104,9 +121,9 @@ GuideMe.prototype.pageLoadedHandler = function(request, sender, sendResponse)
   // Check if we support the site
   if (hostname in this.menu) 
   {
-    chrome.pageAction.show(sender.tab.id);
-    sendResponse({enabled: true});
-
+    var tabId = sender.tab.id;  
+    chrome.pageAction.show(tabId);
+    sendResponse({action: (tabId in this.state) ? this.state[tabId] : null});
   }
   return true;
 }
@@ -154,3 +171,6 @@ chrome.extension.onMessage.addListener(
     b.guideme.onMessage(request, sender, sendResponse);
     return true;
   });
+  
+
+

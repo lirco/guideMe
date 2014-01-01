@@ -12,21 +12,15 @@ $( document ).ready(function() {
     chrome.extension.sendMessage({method:'getMenu', url:url}, function(response)
     {
       var menuItems = response['menu'];
-      console.log(menuItems);
       _.each(menuItems, function(item) {
-        console.log(item);
-
         $('#guideme_menu').append('<p><a href="#" class="guideme_menu_item" id="'+item.id+'">'+item.title+'</a></p>');
       });
 
       // Attach on click handler
       $('.guideme_menu_item').click(function(){
         var tutorialId = $(this).attr('id');
-        chrome.extension.sendMessage({method:'onMenu', tutorialId:tutorialId, tabId:tabId}, function(response)
-        {
-          // Close popup
-          window.close();
-        });
+        chrome.extension.sendMessage({method:'onMenu', tutorialId:tutorialId, tabId:tabId});
+        window.close();
       });
     });
   });
