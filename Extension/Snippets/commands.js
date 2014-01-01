@@ -86,7 +86,18 @@ var insertString = function() {
     });
 };
 
+/*
+slideshare part
+url : http://www.slideshare.net/*
+ */
 
+var getEmbed = function() {
+    $(".embed-btn").css("color","red");
+    alert("יפה, לחץ כאן כדי להשיג את הלינק הרצוי");
+    $(".embed-btn").click(function(){
+        alert("עכשיו העתק את הלינק");
+    });
+};
 
 /**
  * chrome.tabs.getSelected(null,function(tab) {
