@@ -9,6 +9,8 @@ var moodle_tutorial = {
         // Login 
         id:"moodle_login",
         selector: "#login",
+        position:9,
+        width:200
         description: "You have to login to moodle in order to continue",
         title: "",
         next: "moodle_enter_course",
@@ -27,6 +29,8 @@ var moodle_tutorial = {
         // Choose course 
         id:"moodle_enter_course",
         selector:"#coursetable",
+        position:12,
+        width:200,
         description: "Now enter your course",
         next:"moodle_enter_edit",
         title: "", 
@@ -39,8 +43,11 @@ var moodle_tutorial = {
     "moodle_enter_edit" : {
         // Choose course 
         id:"moodle_enter_edit",
-        selector:"#coursetable",
+        selector:"a[href*='edit']",
+        position:3,
+        width:140,
         description: "Enable edit mode",
+        next: "moodle_add_label",
         title: "", 
         post: function() {
         }

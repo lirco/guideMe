@@ -87,6 +87,7 @@ GuideUI.prototype.showAction = function(tutorialId, actionId)
 
   this.guide = guiders.createGuider({
     attachTo: action.selector,
+    position: action.position,
     buttons: [{name: "Next", onclick: function() {
        
       if (action.post() == true)
@@ -99,8 +100,7 @@ GuideUI.prototype.showAction = function(tutorialId, actionId)
     title: action.title,
     id: action.id,
     next: "fourth", //TODO: Think how to implement UI state machine
-    position: 9,
-    width: 300
+    width: action.width
   });
     
   this.guide.action = action;
