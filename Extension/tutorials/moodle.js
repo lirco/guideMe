@@ -4,23 +4,28 @@ console.log("Moodle tutorial loaded");
 var moodle_tutorial = {
     "id" : "moodle_embed_slideshare",
     "start" : "moodle_login",
+    // TODO: Refactor to list and write code that will remap actions by id
     "moodle_login" : {
         // Login 
+        id:"moodle_login",
         selector: "#login",
         description: "You have to login to moodle in order to continue",
         title: "",
         next: "moodle_enter_course",
         pre: function() {
-            console.log("Checking preconditions: moodle_login");
-            return !isLoggedIn();
+            var loggedIn = isLoggedIn();
+            console.log("User is logged in: " + loggedIn);
+            return !loggedIn;
         },
         post: function() {
-            console.log("Checking post conditions: moodle_login");
-            return isLoggedIn();
+            var loggedIn = isLoggedIn();
+            console.log("User is logged in: " + loggedIn);
+            return loggedIn;
         }
     },
     "moodle_enter_course" : {
         // Choose course 
+        id:"moodle_enter_course",
         description: "Now enter your course",
         title: ""   
     },

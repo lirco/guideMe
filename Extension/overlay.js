@@ -4,7 +4,7 @@ var GuideUI = function() {
 
   //this.registerHandler("nextAction",    this.nextActionHandler.bind(this));
   //this.registerHandler("showAction",    this.showActionHandler.bind(this));
-  this.registerHandler("startTutorial",   this.startTutorialHandler.bind(this));
+  this.registerHandler("startTutorial",   this.startTutorial.bind(this));
 };
 
 GuideUI.prototype.registerHandler = function(method, handler)
@@ -38,7 +38,7 @@ GuideUI.prototype.onMessage = function(request, sender, sendResponse)
   }
 }
 
-GuideUI.prototype.startTutorialHandler = function(request, sender, sendResponse)
+GuideUI.prototype.startTutorial = function(request, sender, sendResponse)
 {
   console.log("Start tutorial: " + request.tutorialId);
   // TODO:check that we are not in the middle of another tutorial
@@ -46,20 +46,26 @@ GuideUI.prototype.startTutorialHandler = function(request, sender, sendResponse)
   // Check if we have this tutorial
   if (request.tutorialId in this.tutorials)
   {
-    var tutorial = this.tutorials[request.tutorialId];
-    var action = tutorial[tutorial.start];
+    tutorial = this.tutorials[request.tutorialId];
+    action = tutorial[tutorial.start];
     
-    // Report state to extension
+    chrome.extension.sendMessage({method: "actionStarted", tutorialId:tutorial.id, actionId:action.id});
 
     this.showAction(action);
   }
 }
 
-GuideUI.prototype.nextAction = function(action)
+GuideUI.prototype.getAction = function(tutorialId, actionId)
 {
-    chrome.extension.sendMessage({method: "nextAction", action:action}, function(response) {
-        console.log(response);
-    });
+  var tutorial = this.tutorials[tutorialId];
+  var action = tutorial[actionId];
+  return action;
+}
+
+GuideUI.prototype.runAction = function(tutorialId, actionId)
+{
+  action = this.getAction(tutorialId, actionId);
+  this.showAction(action);
 }
 
 GuideUI.prototype.addTutorial = function(tutorial)
@@ -97,14 +103,25 @@ console.log("GuideUI loaded");
 
 // Reload state from the extension
 chrome.extension.sendMessage({method: "uiLoaded"}, function(response) {
-  console.log(response);
-  var action = response.action;
-  if (action != null) 
+  if (response.state != null) // we are in the middle of the tutorial
   {
-      // Check if post conditions of the current action are satisfied, move to the next one
-      if (action.post() == true)
-      {
-          nextAction(action);
-      }
+    var tutorialId = response.state.tutorialId;
+    var actionId   = response.state.actionId;
+    
+    console.log("Resume tutorial: " + tutorialId + " from action: " + actionId);
+
+    var action = guideui.getAction(tutorialId, actionId)
+    if (action != null) 
+    {
+        // Check if post conditions of the current action are satisfied, move to the next one
+        if (action.post() == true)
+        {
+            guideui.runAction(tutorialId, action.next);
+        }
+    }
+    else
+    {
+      console.error("Unable to resume tutorial: " + tutorialId + ", action not found: " + actionId);
+    }
   }
 });

@@ -1,6 +1,8 @@
  var GuideMe = function() {
   this.settings = new GuideMeSettings();
   this.handlers = {};
+
+  // Holds the state of the curren
   this.state = {}
   this.menu = {
     "moodle.tau.ac.il" : [
@@ -14,20 +16,15 @@
       }
     ]
   };
-  
-  // TODO: Implement state machine history stack and trace
-  
-  
-  // TODO: Implement flow loading from the server, so we can update it if the site changes (Phase2)
-  this.actions = {}
 
   // Register handlers
-  this.registerHandler("getMenu",    this.getMenuHandler.bind(this));
-  this.registerHandler("uiLoaded",   this.uiLoadedHandler.bind(this));
+  this.registerHandler("getMenu",           this.getMenu.bind(this));
+  this.registerHandler("uiLoaded",          this.uiLoaded.bind(this));
+  this.registerHandler("actionStarted",     this.actionStarted.bind(this));
 
 };
 
-GuideMe.prototype.getMenuHandler = function(request, sender, sendResponse)
+GuideMe.prototype.getMenu = function(request, sender, sendResponse)
 {
   var hostname = $('<a>').prop('href', request.url).prop('hostname');
   console.log("getMenuHandler: " + hostname);
@@ -41,32 +38,20 @@ GuideMe.prototype.getMenuHandler = function(request, sender, sendResponse)
   }
 }
 
-GuideMe.prototype.runAction = function(tabId, tutorialId, actionId)
+// We assume one tutorial per taba at this point
+GuideMe.prototype.actionStarted = function(request, sender, sendResponse)
 {
-    console.log("runAction: tabId = "+ tabId + " tutorialId = " + tutorialId + " actionId = " + actionId);
-    // TODO: Check that tutorial exists
-    var tutorial = this.actions[tutorialId];
-    var action = tutorial[actionId];
-    
-    // Copy the id iteself so we have in the UI
-    action.id = actionId;
-    action.tutorialId = tutorialId;
-    
-    this.state[tabId] = action;
-    
-    chrome.tabs.sendMessage(tabId, {method: "showAction", action:action}, function(response) {
-        console.log("Running action");
-        console.log(response);
-    });
+  if (sender.tab.id in this.state)
+  {
+    this.state[sender.tab.id].actionId = request.actionId;
+  }
+  else
+  {
+    this.state[sender.tab.id] = {tutorialId: request.tutorialId, actionId:request.actionId}
+  } 
 }
 
-
-GuideMe.prototype.nextActionHandler = function(request, sender, sendResponse)
-{
-  this.runAction(sender.tab.id, request.action.tutorialId, request.action.id);
-}
-
-GuideMe.prototype.uiLoadedHandler = function(request, sender, sendResponse)
+GuideMe.prototype.uiLoaded = function(request, sender, sendResponse)
 {
   var hostname = $('<a>').prop('href', sender.tab.url).prop('hostname');
   console.log("pageLoadedHandler: " + hostname);
@@ -76,7 +61,7 @@ GuideMe.prototype.uiLoadedHandler = function(request, sender, sendResponse)
   {
     var tabId = sender.tab.id;  
     chrome.pageAction.show(tabId);
-    sendResponse({action: (tabId in this.state) ? this.state[tabId] : null});
+    sendResponse({state: (tabId in this.state) ? this.state[tabId] : null});
   }
   return true;
 }
