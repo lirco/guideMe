@@ -26,8 +26,24 @@ var moodle_tutorial = {
     "moodle_enter_course" : {
         // Choose course 
         id:"moodle_enter_course",
+        selector:"#coursetable",
         description: "Now enter your course",
-        title: ""   
+        next:"moodle_enter_edit",
+        title: "", 
+        post: function() {
+          var res = isInCourse();
+          console.log("User is in course: " + res);
+          return res;
+        }
+    },
+    "moodle_enter_edit" : {
+        // Choose course 
+        id:"moodle_enter_edit",
+        selector:"#coursetable",
+        description: "Enable edit mode",
+        title: "", 
+        post: function() {
+        }
     },
     "moodle_action_id" : {
           // Login 
@@ -57,6 +73,13 @@ function isLoggedIn() {
     var status = $(".logininfo > a ").html();
     return (status != "התחבר/י" && status != "Login") 
 };
+
+function isInCourse()
+{
+  var dir = URI(location.href).directory();
+  console.log(dir);
+  return (dir == "/course");
+}
 
 /*
 Identify the course

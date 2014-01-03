@@ -47,25 +47,31 @@ GuideUI.prototype.startTutorial = function(request, sender, sendResponse)
   if (request.tutorialId in this.tutorials)
   {
     tutorial = this.tutorials[request.tutorialId];
-    action = tutorial[tutorial.start];
-    
-    chrome.extension.sendMessage({method: "actionStarted", tutorialId:tutorial.id, actionId:action.id});
-
-    this.showAction(action);
+    this.showAction(request.tutorialId, tutorial.start);
   }
+}
+
+GuideUI.prototype.updateStatus = function(action)
+{
+  chrome.extension.sendMessage({method: "actionStarted", tutorialId:action.tutorialId, actionId:action.id});
 }
 
 GuideUI.prototype.getAction = function(tutorialId, actionId)
 {
   var tutorial = this.tutorials[tutorialId];
-  var action = tutorial[actionId];
-  return action;
-}
+  var action   = tutorial[actionId];
 
-GuideUI.prototype.runAction = function(tutorialId, actionId)
-{
-  action = this.getAction(tutorialId, actionId);
-  this.showAction(action);
+  if (typeof action != 'undefined')
+  {
+    action.id         = actionId;
+    action.tutorialId = tutorialId;    
+  }
+  else
+  {
+    console.error("No action found: tutorialId: " + tutorialId + " actionId: " + actionId);
+  }
+
+  return action;
 }
 
 GuideUI.prototype.addTutorial = function(tutorial)
@@ -73,21 +79,32 @@ GuideUI.prototype.addTutorial = function(tutorial)
   this.tutorials[tutorial.id] = tutorial;
 }
 
-GuideUI.prototype.showAction = function(action) 
+GuideUI.prototype.showAction = function(tutorialId, actionId) 
 {
-    this.guide = guiders.createGuider({
-      attachTo: action.selector,
-      buttons: [{name: "Next", onclick: guideui.nextAction}],
-      description: action.description,
-      title: action.title,
-      id: action.id,
-      next: "fourth", //TODO: Think how to implement UI state machine
-      position: 9,
-      width: 300
-    });
+  var action = this.getAction(tutorialId, actionId);
+
+  this.updateStatus(action);
+
+  this.guide = guiders.createGuider({
+    attachTo: action.selector,
+    buttons: [{name: "Next", onclick: function() {
+       
+      if (action.post() == true)
+      {
+        guideui.showAction(tutorialId, action.next);
+      }
+      
+    }}],
+    description: action.description,
+    title: action.title,
+    id: action.id,
+    next: "fourth", //TODO: Think how to implement UI state machine
+    position: 9,
+    width: 300
+  });
     
-    this.guide.action = action;
-    this.guide.show();
+  this.guide.action = action;
+  this.guide.show();
 }
 
 var guideui = new GuideUI();
@@ -116,7 +133,7 @@ chrome.extension.sendMessage({method: "uiLoaded"}, function(response) {
         // Check if post conditions of the current action are satisfied, move to the next one
         if (action.post() == true)
         {
-            guideui.runAction(tutorialId, action.next);
+            guideui.showAction(tutorialId, action.next);
         }
     }
     else

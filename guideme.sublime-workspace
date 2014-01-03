@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"Tu",
+				"tutorialId"
+			],
+			[
+				"tu",
+				"tutorialId"
+			],
+			[
+				"get",
+				"getAction"
+			],
+			[
+				"lo",
+				"loggedIn"
+			],
+			[
+				"ac",
+				"actionId"
+			],
+			[
+				"act",
+				"action"
+			],
+			[
+				"tut",
+				"tutorialId"
+			],
+			[
+				"action",
+				"actionId"
+			],
+			[
+				"mood",
+				"moodle_tutorial"
+			],
+			[
 				"guide",
 				"guideme_menu_item"
 			],
@@ -34,10 +70,6 @@
 			[
 				"Floa",
 				"floatLeft"
-			],
-			[
-				"ac",
-				"action_add"
 			],
 			[
 				"add",
@@ -227,15 +259,15 @@
 			"file": "Extension/guideme.js",
 			"settings":
 			{
-				"buffer_size": 3898,
+				"buffer_size": 2864,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Extension/manifest.json",
+			"file": "Extension/overlay.js",
 			"settings":
 			{
-				"buffer_size": 858,
+				"buffer_size": 3764,
 				"line_ending": "Windows"
 			}
 		},
@@ -243,32 +275,26 @@
 			"file": "Extension/tutorials/moodle.js",
 			"settings":
 			{
-				"buffer_size": 3822,
+				"buffer_size": 4692,
 				"line_ending": "Windows",
 				"name": "console.log(\"Moodle tutorial loaded\");"
 			}
 		},
 		{
-			"file": "Extension/overlay.js",
+			"contents": "Searching 16 files for \"action.id\"\n\nC:\\Code\\GitHub\\guideMe\\Extension\\guideme.js:\n   48      \n   49      // Copy the id iteself so we have in the UI\n   50:     action.id = actionId;\n   51      action.tutorialId = tutorialId;\n   52      \n   ..\n   79  GuideMe.prototype.nextActionHandler = function(request, sender, sendResponse)\n   80  {\n   81:   this.runAction(sender.tab.id, request.action.tutorialId, request.action.id);\n   82  }\n   83  \n\nC:\\Code\\GitHub\\guideMe\\Extension\\overlay.js:\n   50      var action = tutorial[tutorial.start];\n   51      \n   52:     chrome.extension.sendMessage({method: \"actionStarted\", tutorialId:tutorial.id, actionId:action.id});\n   53  \n   54      this.showAction(action);\n   ..\n   75        description: action.description,\n   76        title: action.title,\n   77:       id: action.id,\n   78        next: \"fourth\", //TODO: Think how to implement UI state machine\n   79        position: 9,\n\n4 matches across 2 files\n\n\nSearching 16 files for \"runAction\"\n\nC:\\Code\\GitHub\\guideMe\\Extension\\overlay.js:\n   81      attachTo: action.selector,\n   82      buttons: [{name: \"Next\", onclick: function() {\n   83:       guideui.runAction\n   84      }}],\n   85      description: action.description,\n   ..\n  121          if (action.post() == true)\n  122          {\n  123:             guideui.runAction(tutorialId, action.next);\n  124          }\n  125      }\n\n2 matches in 1 file\n\n\nSearching 16 files for \"showAction\"\n\nC:\\Code\\GitHub\\guideMe\\Extension\\overlay.js:\n    4  \n    5    //this.registerHandler(\"nextAction\",    this.nextActionHandler.bind(this));\n    6:   //this.registerHandler(\"showAction\",    this.showActionHandler.bind(this));\n    7    this.registerHandler(\"startTutorial\",   this.startTutorial.bind(this));\n    8  };\n    .\n   51      chrome.extension.sendMessage({method: \"actionStarted\", tutorialId:tutorial.id, actionId:action.id});\n   52  \n   53:     this.showAction(request.tutorialId, tutorial.start);\n   54    }\n   55  }\n   ..\n   74  }\n   75  \n   76: GuideUI.prototype.showAction = function(tutorialId, actionId) \n   77  {\n   78    var action = this.getAction(tutorialId, actionId);\n   ..\n   80      attachTo: action.selector,\n   81      buttons: [{name: \"Next\", onclick: function() {\n   82:       guideui.showAction(tutorialId, action.next);\n   83      }}],\n   84      description: action.description,\n   ..\n  120          if (action.post() == true)\n  121          {\n  122:             guideui.showAction(tutorialId, action.next);\n  123          }\n  124      }\n\n6 matches in 1 file\n",
 			"settings":
 			{
-				"buffer_size": 1394,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Extension/overlay.css",
-			"settings":
-			{
-				"buffer_size": 61,
-				"line_ending": "Windows"
+				"buffer_size": 2520,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
 			"file": "Extension/popup.js",
 			"settings":
 			{
-				"buffer_size": 881,
+				"buffer_size": 877,
 				"line_ending": "Windows"
 			}
 		},
@@ -329,8 +355,9 @@
 	},
 	"file_history":
 	[
-		"/C/Code/GitHub/guideMe/Extension/action.js",
+		"/C/Code/GitHub/guideMe/Extension/overlay.css",
 		"/C/Code/GitHub/guideMe/Extension/manifest.json",
+		"/C/Code/GitHub/guideMe/Extension/action.js",
 		"/C/Code/GitHub/guideMe/Extension/popup.html",
 		"/C/Code/GitHub/sharez/server/views/templates/tag.jade",
 		"/C/Code/GitHub/sharez/server/build.js",
@@ -450,6 +477,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"showAction",
+			"runAction",
+			"action.id",
+			"showAction",
 			"moodle_menu_slideshare",
 			"handleRequest",
 			"item_tags",
@@ -562,7 +593,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -571,15 +602,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3898,
+						"buffer_size": 2864,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1848,
-								1848
+								729,
+								763
 							]
 						],
 						"settings":
@@ -587,36 +618,34 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 830.0,
+						"translation.y": 396.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Extension/manifest.json",
+					"file": "Extension/overlay.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 858,
+						"buffer_size": 3764,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								465,
-								465
+								2353,
+								2353
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 947.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -627,15 +656,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3822,
+						"buffer_size": 4692,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								997,
-								997
+								1591,
+								1591
 							]
 						],
 						"settings":
@@ -644,58 +673,121 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 396.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "Extension/overlay.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1394,
+						"buffer_size": 2520,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										159,
+										168
+									],
+									[
+										410,
+										419
+									],
+									[
+										646,
+										655
+									],
+									[
+										806,
+										815
+									],
+									[
+										1146,
+										1155
+									],
+									[
+										1308,
+										1317
+									],
+									[
+										1605,
+										1615
+									],
+									[
+										1626,
+										1636
+									],
+									[
+										1890,
+										1900
+									],
+									[
+										2006,
+										2016
+									],
+									[
+										2243,
+										2253
+									],
+									[
+										2432,
+										2442
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
 							[
-								62,
-								62
+								1397,
+								1397
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 3,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1056.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "Extension/overlay.css",
+					"file": "Extension/popup.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 61,
+						"buffer_size": 877,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								180,
+								309
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -705,33 +797,6 @@
 				},
 				{
 					"buffer": 5,
-					"file": "Extension/popup.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 881,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
 					"file": "Extension/popup.html",
 					"semi_transient": false,
 					"settings":
