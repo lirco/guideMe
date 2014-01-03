@@ -5,7 +5,7 @@
   this.menu = {
     "moodle.tau.ac.il" : [
       {
-        id:"moodle_menu_slideshare", 
+        id:"moodle_embed_slideshare", 
         title:"Embed Slideshare presentation"
       }, 
       { 
@@ -19,50 +19,12 @@
   
   
   // TODO: Implement flow loading from the server, so we can update it if the site changes (Phase2)
-  this.actions = {
-    "moodle_menu_slideshare" : 
-      {
-          "start" : "moodle_login",
-          "moodle_login" : {
-              // Login 
-              selector: "#login",
-              description: "You have to login to moodle in order to continue",
-              title: "",
-              next: "moodle_enter_course",
-              pre: function() {
-                  console.log("Checking preconditions: moodle_login");
-                  return !isLoggedIn();
-              },
-              post: function() {
-                  console.log("Checking post conditions: moodle_login");
-                  return isLoggedIn();
-              }
-          },
-          "moodle_enter_course" : {
-              // Choose course 
-              description: "Now enter your course",
-              title: ""   
-          },
-          "moodle_action_id" : {
-                // Login 
-                selector: "",
-                description: "",
-                title: "",
-                next: "",
-                pre: function() {
-                    
-                },
-                post: function() {
-                }
-            },
-      },
-  }
+  this.actions = {}
 
   // Register handlers
   this.registerHandler("getMenu",    this.getMenuHandler.bind(this));
-  this.registerHandler("onMenu",     this.onMenuHandler.bind(this));
   this.registerHandler("uiLoaded",   this.uiLoadedHandler.bind(this));
-  this.registerHandler("nextAction", this.nextActionHandler.bind(this));
+
 };
 
 GuideMe.prototype.getMenuHandler = function(request, sender, sendResponse)
@@ -98,15 +60,6 @@ GuideMe.prototype.runAction = function(tabId, tutorialId, actionId)
     });
 }
 
-GuideMe.prototype.onMenuHandler = function(request, sender, sendResponse)
-{
-  console.log("On Menu: " + request.id);
-  // TODO:check that we are not in the middle of another tutorial
-  var tutorial = this.actions[request.tutorialId];
-  this.runAction(request.tabId, request.tutorialId, tutorial.start);
-  
-  // update state - tutorial running
-}
 
 GuideMe.prototype.nextActionHandler = function(request, sender, sendResponse)
 {

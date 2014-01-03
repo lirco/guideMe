@@ -227,32 +227,40 @@
 			"file": "Extension/guideme.js",
 			"settings":
 			{
-				"buffer_size": 2788,
+				"buffer_size": 3898,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Extension/action.js",
-			"settings":
-			{
-				"buffer_size": 192,
-				"line_ending": "Windows",
-				"name": "var Action = function() {"
 			}
 		},
 		{
 			"file": "Extension/manifest.json",
 			"settings":
 			{
-				"buffer_size": 769,
+				"buffer_size": 858,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Extension/tutorials/moodle.js",
+			"settings":
+			{
+				"buffer_size": 3822,
+				"line_ending": "Windows",
+				"name": "console.log(\"Moodle tutorial loaded\");"
 			}
 		},
 		{
 			"file": "Extension/overlay.js",
 			"settings":
 			{
-				"buffer_size": 869,
+				"buffer_size": 1394,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Extension/overlay.css",
+			"settings":
+			{
+				"buffer_size": 61,
 				"line_ending": "Windows"
 			}
 		},
@@ -260,7 +268,7 @@
 			"file": "Extension/popup.js",
 			"settings":
 			{
-				"buffer_size": 951,
+				"buffer_size": 881,
 				"line_ending": "Windows"
 			}
 		},
@@ -321,8 +329,9 @@
 	},
 	"file_history":
 	[
-		"/C/Code/GitHub/guideMe/Extension/popup.html",
+		"/C/Code/GitHub/guideMe/Extension/action.js",
 		"/C/Code/GitHub/guideMe/Extension/manifest.json",
+		"/C/Code/GitHub/guideMe/Extension/popup.html",
 		"/C/Code/GitHub/sharez/server/views/templates/tag.jade",
 		"/C/Code/GitHub/sharez/server/build.js",
 		"/C/Code/GitHub/sharez/server/node_modules/templatizer/templatizer.js",
@@ -441,6 +450,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"moodle_menu_slideshare",
 			"handleRequest",
 			"item_tags",
 			"tag_x",
@@ -552,7 +562,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -561,15 +571,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2788,
+						"buffer_size": 3898,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								567,
-								567
+								1848,
+								1848
 							]
 						],
 						"settings":
@@ -577,54 +587,26 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 830.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Extension/action.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 192,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								174,
-								174
-							]
-						],
-						"settings":
-						{
-							"auto_name": "var Action = function() {",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "Extension/manifest.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 769,
+						"buffer_size": 858,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								661,
-								661
+								465,
+								465
 							]
 						],
 						"settings":
@@ -640,20 +622,48 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "Extension/overlay.js",
+					"buffer": 2,
+					"file": "Extension/tutorials/moodle.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 869,
+						"buffer_size": 3822,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								461,
-								461
+								997,
+								997
+							]
+						],
+						"settings":
+						{
+							"auto_name": "console.log(\"Moodle tutorial loaded\");",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Extension/overlay.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1394,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								62,
+								62
 							]
 						],
 						"settings":
@@ -668,19 +678,46 @@
 				},
 				{
 					"buffer": 4,
-					"file": "Extension/popup.js",
+					"file": "Extension/overlay.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 951,
+						"buffer_size": 61,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								951,
-								951
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Extension/popup.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 881,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -694,7 +731,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "Extension/popup.html",
 					"semi_transient": false,
 					"settings":

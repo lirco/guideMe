@@ -1,3 +1,47 @@
+console.log("Moodle tutorial loaded");
+
+// Register state machine
+var moodle_tutorial = {
+    "id" : "moodle_embed_slideshare",
+    "start" : "moodle_login",
+    "moodle_login" : {
+        // Login 
+        selector: "#login",
+        description: "You have to login to moodle in order to continue",
+        title: "",
+        next: "moodle_enter_course",
+        pre: function() {
+            console.log("Checking preconditions: moodle_login");
+            return !isLoggedIn();
+        },
+        post: function() {
+            console.log("Checking post conditions: moodle_login");
+            return isLoggedIn();
+        }
+    },
+    "moodle_enter_course" : {
+        // Choose course 
+        description: "Now enter your course",
+        title: ""   
+    },
+    "moodle_action_id" : {
+          // Login 
+          selector: "",
+          description: "",
+          title: "",
+          next: "",
+          pre: function() {
+              
+          },
+          post: function() {
+          }
+      },
+}
+
+guideui.addTutorial(moodle_tutorial);
+
+// ///////////////////////////////////////////////
+// Functions
 
 /*
 verify if user is logged in

@@ -19,7 +19,7 @@ $( document ).ready(function() {
       // Attach on click handler
       $('.guideme_menu_item').click(function(){
         var tutorialId = $(this).attr('id');
-        chrome.extension.sendMessage({method:'onMenu', tutorialId:tutorialId, tabId:tabId});
+        chrome.tabs.sendMessage(tabId, {method:'startTutorial', tutorialId:tutorialId});
         window.close();
       });
     });
