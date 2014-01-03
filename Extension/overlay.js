@@ -92,9 +92,10 @@ GuideUI.prototype.showAction = function(tutorialId, actionId)
        
       if (action.post() == true)
       {
+        guiders.hideAll();
         guideui.showAction(tutorialId, action.next);
       }
-      
+      return true;
     }}],
     description: action.description,
     title: action.title,

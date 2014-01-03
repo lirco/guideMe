@@ -10,7 +10,7 @@ var moodle_tutorial = {
         id:"moodle_login",
         selector: "#login",
         position:9,
-        width:200
+        width:200,
         description: "You have to login to moodle in order to continue",
         title: "",
         next: "moodle_enter_course",
