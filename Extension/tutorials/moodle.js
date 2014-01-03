@@ -41,7 +41,7 @@ var moodle_tutorial = {
         }
     },
     "moodle_enter_edit" : {
-        // Choose course 
+        // Enter edit mode
         id:"moodle_enter_edit",
         selector:"a[href*='edit']",
         position:3,
@@ -50,20 +50,47 @@ var moodle_tutorial = {
         next: "moodle_add_label",
         title: "", 
         post: function() {
+            var res = isEditMode();
+            console.log("User is in Edit Mode :" + res);
+            return res;
         }
     },
-    "moodle_action_id" : {
-          // Login 
-          selector: "",
-          description: "",
-          title: "",
-          next: "",
+    "moodle_add_resource" : {
+          //
+          selector: ".section-modchooser-text",
+          description: "Add an activity or resource",
+          title: "Add an activity or resource",
+          next: "add_label",
           pre: function() {
               
           },
           post: function() {
           }
       },
+    "moodle_add_label" : {
+        // Login
+        selector: "",
+        description: "",
+        title: "",
+        next: "",
+        pre: function() {
+
+        },
+        post: function() {
+        }
+    },
+    "moodle_action_id" : {
+        // Login
+        selector: "",
+        description: "",
+        title: "",
+        next: "",
+        pre: function() {
+
+        },
+        post: function() {
+        }
+    }
 }
 
 guideui.addTutorial(moodle_tutorial);
@@ -81,17 +108,28 @@ function isLoggedIn() {
     return (status != "התחבר/י" && status != "Login") 
 };
 
-function isInCourse()
-{
+function isInCourse() {
   var dir = URI(location.href).directory();
   console.log(dir);
   return (dir == "/course");
-}
+};
+
+/*
+now using .text(), will change this later based on "edit=on/off" at
+ $(".tree_item.leaf > a:first").prop('href');
+ */
+
+function isEditMode() {
+    var status = $(".tree_item.leaf > a:first ").text();
+    return (status != "כיבוי עריכה" && status != "Turn editing off");
+};
+
+
 
 /*
 Identify the course
 url : moodle.tau.co.il
- */
+
 var chooseCourse = function() {
     $("#coursestable").css("background-color","yellow");
     alert('Choose a course please');
@@ -101,10 +139,11 @@ var chooseCourse = function() {
     });
 };
 
+*/
+
 /*
 activating edit mode
 url : http://moodle.tau.ac.il/course/view.php?id=SOME_ID
- */
 
 var enableEditMode = function() {
     var status = $(".tree_item.leaf > a:first ").text();
@@ -116,7 +155,7 @@ var enableEditMode = function() {
         alert('huston, we have a problem here.. check the code');
     }
 };
-
+*/
 
 /*
 Choose asection of the course to add the content, and click on 'Add an activity or resource' button
