@@ -4,8 +4,9 @@
     <title>GuideMe Menu</title>
     <style>
       body {
-        min-width: 357px;
+        min-width: 320px;
         overflow-x: hidden;
+        font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif;
       }
 
       img {
@@ -14,6 +15,63 @@
         vertical-align: middle;
         width: 75px;
         height: 75px;
+      }
+      .actionButton {
+        -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+        -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+        box-shadow:inset 0px 1px 0px 0px #ffffff;
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+        background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+        background-color:#ededed;
+        -webkit-border-top-left-radius:5px;
+        -moz-border-radius-topleft:5px;
+        border-top-left-radius:5px;
+        -webkit-border-top-right-radius:5px;
+        -moz-border-radius-topright:5px;
+        border-top-right-radius:5px;
+        -webkit-border-bottom-right-radius:5px;
+        -moz-border-radius-bottomright:5px;
+        border-bottom-right-radius:5px;
+        -webkit-border-bottom-left-radius:5px;
+        -moz-border-radius-bottomleft:5px;
+        border-bottom-left-radius:5px;
+        text-indent:0;
+        border:1px solid #dcdcdc;
+        display:inline-block;
+        color:#777777;
+        font-family:Arial;
+        font-size:15px;
+        font-weight:bold;
+        font-style:normal;
+        height:30px;
+        line-height: 30px;
+        width:300px;
+        margin:5px;
+        margin-top:10px;
+        text-decoration:none;
+        text-align:center;
+        text-shadow:1px 1px 0px #ffffff;
+      }
+      .actionButton:hover {
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+        background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+        background-color:#dfdfdf;
+      }.actionButton:active {
+        position:relative;
+        top:1px;
+      }
+      
+      #guideme_menu {
+          width:320px;
+          margin:auto;
+      }
+      
+      .small_title {
+          margin:5px;
+          font-size:16px;
+          color:#666;
       }
     </style>
 
@@ -28,7 +86,7 @@
     <script src="popup.js"></script>
   </head>
   <body>
-      <h2>GuideMe Menu</h2>
+      <span class="small_title">Start tutorial:<span><br/>
       <div id="guideme_menu"></div>
   </body>
 </html>

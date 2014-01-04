@@ -28,11 +28,12 @@ var moodle_tutorial = {
     "moodle_enter_course" : {
         // Choose course 
         id:"moodle_enter_course",
-        selector:"#coursetable",
+        selector:"#coursestable",
         position:12,
         width:200,
         description: "Now enter your course",
         next:"moodle_enter_edit",
+        autoFocus:true,
         title: "", 
         post: function() {
           var res = isInCourse();
@@ -43,28 +44,37 @@ var moodle_tutorial = {
     "moodle_enter_edit" : {
         // Enter edit mode
         id:"moodle_enter_edit",
-        selector:"a[href*='edit']",
+        selector:"a[href*='edit'] > img",
         position:3,
         width:140,
         description: "Enable edit mode",
-        next: "moodle_add_label",
+        next: "moodle_add_resource",
         title: "", 
         post: function() {
-            var res = isEditMode();
+            var res = isInEditMode();
             console.log("User is in Edit Mode :" + res);
             return res;
         }
     },
     "moodle_add_resource" : {
-          //
-          selector: ".section-modchooser-text",
-          description: "Add an activity or resource",
-          title: "Add an activity or resource",
-          next: "add_label",
+          id: "moodle_add_resource",
+          selector: ".section-modchooser-link",
+          description: "Locate the section you want to embed the Slideshare to and click to add resource",
+          next: "moodle_add_label",
+          title:"",
+          width:200,
+          potition:12,
           pre: function() {
               
           },
           post: function() {
+              var height = $('#moodle-dialogue-1').height();
+              console.log("Height: " + height);
+              if (height > 0)
+              {
+                  return true;
+              }
+              return false;
           }
       },
     "moodle_add_label" : {
@@ -119,9 +129,9 @@ now using .text(), will change this later based on "edit=on/off" at
  $(".tree_item.leaf > a:first").prop('href');
  */
 
-function isEditMode() {
-    var status = $(".tree_item.leaf > a:first ").text();
-    return (status != "כיבוי עריכה" && status != "Turn editing off");
+function isInEditMode() {
+    var edit = $('input[name=edit]').value;    
+    return edit != "on";
 };
 
 

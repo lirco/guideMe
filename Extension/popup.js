@@ -13,7 +13,7 @@ $( document ).ready(function() {
     {
       var menuItems = response['menu'];
       _.each(menuItems, function(item) {
-        $('#guideme_menu').append('<p><a href="#" class="guideme_menu_item" id="'+item.id+'">'+item.title+'</a></p>');
+        $('#guideme_menu').append('<a href="#" class="guideme_menu_item actionButton" id="'+item.id+'">'+item.title+'</a>');
       });
 
       // Attach on click handler

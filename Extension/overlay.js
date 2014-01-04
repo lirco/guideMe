@@ -99,6 +99,7 @@ GuideUI.prototype.showAction = function(tutorialId, actionId)
     }}],
     description: action.description,
     title: action.title,
+    autoFocus: action.hasOwnProperty('autoFocus') ? action.autoFocus : false,
     id: action.id,
     next: "fourth", //TODO: Think how to implement UI state machine
     width: action.width
