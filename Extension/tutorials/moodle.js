@@ -3,6 +3,7 @@ console.log("Moodle tutorial loaded");
 // Register state machine
 var moodle_tutorial = {
     "id" : "moodle_embed_slideshare",
+    "domains" : ["slideshare.net"],
     "start" : "moodle_login",
     // TODO: Refactor to list and write code that will remap actions by id
     "moodle_login" : {
@@ -67,10 +68,10 @@ var moodle_tutorial = {
         post: function() {
             var domain = URI(location.href).domain();
             console.log(domain);
-            return (domain == "slideshare.com");
+            return (domain == "slideshare.net");
         },
         act: function() {
-            chrome.extension.sendMessage({method: "openInTab", url:"http://slideshare.com"});
+            chrome.extension.sendMessage({method: "openInTab", url:"http://slideshare.net"});
         }
     },
     "moodle_add_resource" : {

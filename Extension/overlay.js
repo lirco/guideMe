@@ -77,6 +77,7 @@ GuideUI.prototype.getAction = function(tutorialId, actionId)
 GuideUI.prototype.addTutorial = function(tutorial)
 {
   this.tutorials[tutorial.id] = tutorial;
+  chrome.extension.sendMessage({method: "registerTutorial", tutorial:tutorial});
 }
 
 GuideUI.prototype.showAction = function(tutorialId, actionId) 

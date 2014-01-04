@@ -2,7 +2,8 @@
   this.settings = new GuideMeSettings();
   this.handlers = {};
 
-  // Holds the state of the curren
+  this.domains = []; // List of domains in which GuideMe is activated
+  
   this.state = {}
   this.menu = {
     "moodle.tau.ac.il" : [
@@ -18,6 +19,7 @@
   };
 
   // Register handlers
+  this.registerHandler("registerTutorial",  this.registerTutorial.bind(this));
   this.registerHandler("getMenu",           this.getMenu.bind(this));
   this.registerHandler("uiLoaded",          this.uiLoaded.bind(this));
   this.registerHandler("actionStarted",     this.actionStarted.bind(this));
@@ -57,13 +59,24 @@ GuideMe.prototype.openInTab = function(request, sender, sendRespone)
     chrome.tabs.create({ url: request.url });
 }
 
+GuideMe.prototype.registerTutorial = function(request, sender, sendResponse)
+{
+    var self = this;
+    if (request.tutorial.hasOwnProperty('domains'))
+    {
+        _.each(request.tutorial.domains, function(domain) {
+           self.domains.push[domain]; 
+        });
+    }
+}
+
 GuideMe.prototype.uiLoaded = function(request, sender, sendResponse)
 {
   var hostname = $('<a>').prop('href', sender.tab.url).prop('hostname');
   console.log("pageLoadedHandler: " + hostname);
 
   // Check if we support the site
-  if (hostname in this.menu) 
+  if (hostname in this.menu || $.inArray(hostname, this.domains)) 
   {
     var tabId = sender.tab.id;  
     chrome.pageAction.show(tabId);
