@@ -84,19 +84,28 @@ GuideUI.prototype.showAction = function(tutorialId, actionId)
   var action = this.getAction(tutorialId, actionId);
 
   this.updateStatus(action);
+  
+  var buttons = [{name: "Next", onclick: function() {
+     
+    if (action.post() == true)
+    {
+      guiders.hideAll();
+      guideui.showAction(tutorialId, action.next);
+    }
+    return true;
+  }}];
+  
+  if (action.hasOwnProperty('act'))
+  {
+      buttons.push({name: "Do it!", onclick: function() {
+          action.act();   
+      }});
+  }
 
   this.guide = guiders.createGuider({
     attachTo: action.selector,
     position: action.position,
-    buttons: [{name: "Next", onclick: function() {
-       
-      if (action.post() == true)
-      {
-        guiders.hideAll();
-        guideui.showAction(tutorialId, action.next);
-      }
-      return true;
-    }}],
+    buttons: buttons,
     description: action.description,
     title: action.title,
     autoFocus: action.hasOwnProperty('autoFocus') ? action.autoFocus : false,

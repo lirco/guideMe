@@ -48,12 +48,29 @@ var moodle_tutorial = {
         position:3,
         width:140,
         description: "Enable edit mode",
-        next: "moodle_add_resource",
+        next: "moodle_open_slideshare",
         title: "", 
         post: function() {
             var res = isInEditMode();
             console.log("User is in Edit Mode :" + res);
             return res;
+        }
+    },
+    "moodle_open_slideshare" : {
+        id:"moodle_open_slideshare",
+        selector:"",
+        position:3,
+        width:340,
+        description: "Locate Slideshare presentation you want to embed",
+        next: "moodle_add_resource",
+        title: "", 
+        post: function() {
+            var domain = URI(location.href).domain();
+            console.log(domain);
+            return (domain == "slideshare.com");
+        },
+        act: function() {
+            chrome.extension.sendMessage({method: "openInTab", url:"http://slideshare.com"});
         }
     },
     "moodle_add_resource" : {

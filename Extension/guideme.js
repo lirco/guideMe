@@ -21,6 +21,7 @@
   this.registerHandler("getMenu",           this.getMenu.bind(this));
   this.registerHandler("uiLoaded",          this.uiLoaded.bind(this));
   this.registerHandler("actionStarted",     this.actionStarted.bind(this));
+  this.registerHandler("openInTab",         this.openInTab.bind(this));
 
 };
 
@@ -49,6 +50,11 @@ GuideMe.prototype.actionStarted = function(request, sender, sendResponse)
   {
     this.state[sender.tab.id] = {tutorialId: request.tutorialId, actionId:request.actionId}
   } 
+}
+
+GuideMe.prototype.openInTab = function(request, sender, sendRespone)
+{
+    chrome.tabs.create({ url: request.url });
 }
 
 GuideMe.prototype.uiLoaded = function(request, sender, sendResponse)
