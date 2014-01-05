@@ -22,6 +22,7 @@
   this.registerHandler("registerTutorial",  this.registerTutorial.bind(this));
   this.registerHandler("getMenu",           this.getMenu.bind(this));
   this.registerHandler("uiLoaded",          this.uiLoaded.bind(this));
+  this.registerHandler("startTutorial",     this.startTutorial.bind(this));
   this.registerHandler("actionStarted",     this.actionStarted.bind(this));
   this.registerHandler("openInTab",         this.openInTab.bind(this));
 
@@ -39,6 +40,12 @@ GuideMe.prototype.getMenu = function(request, sender, sendResponse)
   {
     console.error("Menu not defined for: " + hostname);
   }
+}
+
+GuideMe.prototype.startTutorial = function(request, sender, sendResponse)
+{
+  // Reset state
+  this.state[sender.tab.id] = {tutorialId:request.tutorialId};
 }
 
 // We assume one tutorial per taba at this point
@@ -65,7 +72,8 @@ GuideMe.prototype.registerTutorial = function(request, sender, sendResponse)
     if (request.tutorial.hasOwnProperty('domains'))
     {
         _.each(request.tutorial.domains, function(domain) {
-           self.domains.push[domain]; 
+           console.log(domain);
+           self.domains.push(domain); 
         });
     }
 }
@@ -73,10 +81,9 @@ GuideMe.prototype.registerTutorial = function(request, sender, sendResponse)
 GuideMe.prototype.uiLoaded = function(request, sender, sendResponse)
 {
   var hostname = $('<a>').prop('href', sender.tab.url).prop('hostname');
-  console.log("pageLoadedHandler: " + hostname);
 
   // Check if we support the site
-  if (hostname in this.menu || $.inArray(hostname, this.domains)) 
+  if (hostname in this.menu || $.inArray(hostname, this.domains) > -1 )
   {
     var tabId = sender.tab.id;  
     chrome.pageAction.show(tabId);
@@ -87,7 +94,6 @@ GuideMe.prototype.uiLoaded = function(request, sender, sendResponse)
 
 GuideMe.prototype.registerHandler = function(method, handler)
 {
-  console.log("Register handler for message: " + method);
   this.handlers[method] = handler;
 }
 

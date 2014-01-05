@@ -47,6 +47,7 @@ GuideUI.prototype.startTutorial = function(request, sender, sendResponse)
   if (request.tutorialId in this.tutorials)
   {
     tutorial = this.tutorials[request.tutorialId];
+    chrome.extension.sendMessage({method: "startTutorial", tutorialId:request.tutorialId, domains:tutorial.domains});
     this.showAction(request.tutorialId, tutorial.start);
   }
 }
@@ -98,7 +99,7 @@ GuideUI.prototype.showAction = function(tutorialId, actionId)
   
   if (action.hasOwnProperty('act'))
   {
-      buttons.push({name: "Do it!", onclick: function() {
+      buttons.push({name: action.actionLabel, onclick: function() {
           action.act();   
       }});
   }
@@ -132,6 +133,7 @@ console.log("GuideUI loaded");
 
 // Reload state from the extension
 chrome.extension.sendMessage({method: "uiLoaded"}, function(response) {
+
   if (response.state != null) // we are in the middle of the tutorial
   {
     var tutorialId = response.state.tutorialId;

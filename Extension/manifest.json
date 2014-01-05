@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "guideMe",
-  "description": "Guide me through the process of learning how to use a web platform ",
+  "description": "Personalized Interactive Learning Platform",
   "version": "1.0",
   "options_page": "options.html",
   "default_locale": "en",
